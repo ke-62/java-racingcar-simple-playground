@@ -4,6 +4,7 @@ public class RacingCar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        int rounds = scanner.nextInt();
         int n = scanner.nextInt();
         Car [] cars = new Car[n];
 
@@ -14,20 +15,32 @@ public class RacingCar {
 
         CarMove carMove = new CarMove();
 
-        for (int round = 0; round < 5; round++) {
-            for (int i = 0; i < n; i++) {
-                carMove.randomMove(cars[i]);
-                System.out.println(cars[i].getName() + ":" + cars[i].getPosition());
-            }
+        for (int j = 0; j < 5; j++) {
+            runRound(cars, carMove);
         }
         System.out.println();
 
+        System.out.println("[최종 결과]");
         for(int i=0;i<cars.length;i++){
-            System.out.println(cars[i].getName() + ":" + cars[i].getPosition());
+            String dashes = "-".repeat(cars[i].getPosition());
+            System.out.println(cars[i].getName() + " : " + dashes);
         }
+
         Winner winner = new Winner();
         winner.findWinner(cars);
 
         scanner.close();
+    }
+
+    private static void runRound(Car[] cars, CarMove carMove) {
+        for (int i = 0; i < cars.length; i++) {
+            carMove.randomMove(cars[i]);
+        }
+
+        for (Car car : cars) {
+            String dashes = "-".repeat(car.getPosition());
+            System.out.println(car.getName() + " : " + dashes);
+        }
+        System.out.println();
     }
 }

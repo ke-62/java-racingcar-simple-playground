@@ -11,7 +11,7 @@ public class Winner {
 
         for(int i=0;i<cars.length;i++){
             if(cars[i].getPosition() == maxPosition){
-                System.out.println(cars[i].getName() + " ");
+                System.out.print(cars[i].getName() + " ");
             }
         }
     }
