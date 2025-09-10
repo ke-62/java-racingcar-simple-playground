@@ -1,18 +1,31 @@
 public class Winner {
-    public void findWinner(Car[] cars){
-        int maxPosition =0;
-        for(int i=0;i<cars.length;i++){
-            if(cars[i].getPosition() > maxPosition){
-                maxPosition = cars[i].getPosition();
-            }
+
+    public void findWinner(Car[] cars) {
+        int maxPosition = findMaxPosition(cars);
+        StringBuilder result = buildWinnerNames(cars, maxPosition);
+
+        System.out.println(result + "가 최종 우승했습니다.");
+    }
+
+    private int findMaxPosition(Car[] cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
+        return maxPosition;
+    }
 
-        System.out.print("우승자: ");
+    private StringBuilder buildWinnerNames(Car[] cars, int maxPosition) {
+        StringBuilder winnerNames = new StringBuilder();
+        for (Car car : cars) {
+            appendWinnerName(car, maxPosition, winnerNames);
+        }
+        return winnerNames;
+    }
 
-        for(int i=0;i<cars.length;i++){
-            if(cars[i].getPosition() == maxPosition){
-                System.out.print(cars[i].getName() + " ");
-            }
+    private void appendWinnerName(Car car, int maxPosition, StringBuilder winnerNames) {
+        if (car.getPosition() == maxPosition) {
+            winnerNames.append(car.getName()).append(" ");
         }
     }
 }
