@@ -1,5 +1,6 @@
-
 public class Car {
+    private static final int MOVE_THRESHOLD = 4;
+
    private String name;
    private int position=0;
 
@@ -15,8 +16,9 @@ public class Car {
             return position;
     }
 
-    public void move(){
-       position++;
-//       System.out.println(position);
+    public void move(int randomNumber){
+        if(randomNumber>=MOVE_THRESHOLD){
+              position++;
+       }
     }
 }

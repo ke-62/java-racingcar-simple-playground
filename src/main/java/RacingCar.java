@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class RacingCar {
     public static void main(String[] args) {
@@ -13,11 +14,13 @@ public class RacingCar {
             cars[i] = new Car(name);
         }
 
-        RaceManage raceManage = new RaceManage();
-        raceManage.startRace(cars, rounds);
+        Cars carsList = new Cars(Arrays.asList(cars));
+
+        RaceController raceController = new RaceController();
+        raceController.startRace(carsList, rounds);
 
         Winner winner = new Winner();
-        winner.findWinner(cars);
+        winner.findWinner(carsList);
 
         scanner.close();
     }
