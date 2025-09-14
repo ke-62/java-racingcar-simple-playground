@@ -1,12 +1,12 @@
 public class Car {
     private static final int MOVE_THRESHOLD = 4;
 
-   private String name;
+   private final String name;
    private int position=0;
 
-   public Car(String name){
-         this.name=name;
-   } //자동차 이름 규칙 강제화
+   public Car(String name) {
+       this.name = name;
+   }
 
     public String getName(){
             return name;
