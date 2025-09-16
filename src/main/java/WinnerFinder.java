@@ -24,8 +24,12 @@ public class WinnerFinder {
     }
 
     private void appendWinnerName(Car car, int maxPosition, StringBuilder winnerNames){
-        if(car.getPosition() == maxPosition){
-            winnerNames.append(car.getName());
+        if(car.getPosition() != maxPosition) {
+            return;
         }
+        if(!winnerNames.isEmpty()){
+            winnerNames.append(", ");
+        }
+        winnerNames.append(car.getName());
     }
 }

@@ -10,7 +10,7 @@ public class RaceController {
 
     private void runRound(Cars cars, MoveCondition moveCondition) {
         for (Car car : cars.getCars()) {
-            int randomNumber = moveCondition.randomMove();
+            int randomNumber = moveCondition.randomNumber();
             car.move(randomNumber);
         }
 

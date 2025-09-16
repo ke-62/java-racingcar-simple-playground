@@ -2,8 +2,9 @@ import java.util.Random;
 
 public class MoveCondition {
     private static final int MAX_NUMBER = 10;
-    Random random = new Random();
-    public int randomMove(){
+    private static Random random = new Random();
+
+    public int randomNumber(){
         return  random.nextInt(MAX_NUMBER);
     }
 }

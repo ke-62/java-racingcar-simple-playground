@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -5,22 +6,20 @@ public class RaceStart {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int rounds = scanner.nextInt(); //라운드 횟수 입력
-        int n = scanner.nextInt(); // 차 갯수 입력
-        Car[] cars = new Car[n];
+        Car[] carArray = CreateCar.createCar();
+        List<Car> carList = Arrays.asList(carArray);
+        Cars cars = new Cars(carList);
 
-        for (int i = 0; i < n; i++) {
-            String name = scanner.next();
-            cars[i] = new Car(name);
-        }
-
-        Cars carsList = new Cars(Arrays.asList(cars));
+        System.out.println("시도할 회수는 몇회인가요?");
+        int rounds = scanner.nextInt();
+        System.out.println("");
+        System.out.println("실행 결과");
 
         RaceController raceController = new RaceController();
-        raceController.startRace(carsList, rounds);
+        raceController.startRace(cars, rounds);
 
         Winner winner = new Winner();
-        winner.findWinner(carsList);
+        winner.findWinner(cars);
 
         scanner.close();
     }
