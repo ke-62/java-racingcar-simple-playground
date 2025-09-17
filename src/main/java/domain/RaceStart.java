@@ -1,23 +1,19 @@
+package domain;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Arrays;
+import view.InputView;
+import view.ResultView;
 
 public class RaceStart {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         Car[] carArray = CreateCar.createCar();
         List<Car> carList = Arrays.asList(carArray);
         Cars cars = new Cars(carList);
 
-        int rounds = RaceRound.RaceRound();
-
         RaceController raceController = new RaceController();
-        raceController.startRace(cars, rounds);
+        raceController.startRace(cars, InputView.readRounds());
 
-        Winner winner = new Winner();
-        winner.findWinner(cars);
-
-        scanner.close();
+        String winnerNames = cars.findWinnerNames().toString();
+        ResultView.printWinner(winnerNames);
     }
 }

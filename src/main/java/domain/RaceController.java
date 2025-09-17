@@ -1,9 +1,12 @@
+package domain;
+import view.ResultView;
+
 public class RaceController {
-    public void startRace(Cars car, int rounds) {
+    public void startRace(Cars cars, int rounds) {
         MoveCondition moveCondition = new MoveCondition();
 
         for (int round = 0; round < rounds; round++) {
-            runRound(car, moveCondition);
+            runRound(cars, moveCondition);
         }
         System.out.println();
     }
@@ -13,11 +16,6 @@ public class RaceController {
             int randomNumber = moveCondition.randomNumber();
             car.move(randomNumber);
         }
-
-        for (Car car : cars.getCars()) {
-            String dashes = "-".repeat(car.getPosition());
-            System.out.println(car.getName() + " : " + dashes);
-        }
-        System.out.println();
+        ResultView.printRoundResult(cars);
     }
 }

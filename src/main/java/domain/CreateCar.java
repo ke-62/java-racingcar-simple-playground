@@ -1,6 +1,9 @@
+package domain;
+import view.InputView;
+
 public class CreateCar {
     public static Car[] createCar() {
-        String[] name = CarName.getCarNames();
+        String[] name = InputView.getCarNames();
         Car[] cars = new Car[name.length];
 
         for (int i = 0; i < name.length; i++) {
