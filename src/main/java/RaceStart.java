@@ -10,10 +10,7 @@ public class RaceStart {
         List<Car> carList = Arrays.asList(carArray);
         Cars cars = new Cars(carList);
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int rounds = scanner.nextInt();
-        System.out.println("");
-        System.out.println("실행 결과");
+        int rounds = RaceRound.RaceRound();
 
         RaceController raceController = new RaceController();
         raceController.startRace(cars, rounds);
