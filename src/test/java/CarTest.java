@@ -7,6 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
     @Test
+    @DisplayName("자동차 이름이 정상적으로 생성된다.")
+    void createCarTest() {
+        Car car = new Car("TestCar");
+        assertEquals("TestCar", car.getName());
+    }
+
+    @Test
     @DisplayName("4이상일 때 움직인다.")
     void moveTest() {
         Car car = new Car("A");
