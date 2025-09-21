@@ -1,13 +1,10 @@
 package view;
-
-import domain.Car;
-import domain.Cars;
+import java.util.List;
 
 public class ResultView {
-    public static void printRoundResult(Cars cars) {
-        for (Car car : cars.getCars()) {
-            String dashes = "-".repeat(car.getPosition());
-            System.out.println(car.getName() + " : " + dashes);
+    public static void printRoundResult(List<String> carResults) {
+        for (String result : carResults) {
+            System.out.println(result);
         }
         System.out.println();
     }

@@ -10,17 +10,17 @@ public class Car {
     this.name = name;
    }
 
+    public void move(int randomNumber){
+        if(randomNumber>=MOVE_THRESHOLD){
+            position++;
+        }
+    }
+
     public String getName(){
-            return name;
+       return name;
     }
 
     public int getPosition(){
-            return position;
-    }
-
-    public void move(int randomNumber){
-        if(randomNumber>=MOVE_THRESHOLD){
-              position++;
-       }
+       return position;
     }
 }
