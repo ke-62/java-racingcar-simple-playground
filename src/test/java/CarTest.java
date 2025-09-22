@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CarTest {
     @Test
@@ -11,6 +12,14 @@ public class CarTest {
     void createCarTest() {
         Car car = new Car("TestCar");
         assertEquals("TestCar", car.getName());
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 5 초과 시 예외")
+    void carNameLengthTest(){
+        assertThrows(IllegalArgumentException.class,()->{
+            new Car("abcdef");
+        });
     }
 
     @Test
